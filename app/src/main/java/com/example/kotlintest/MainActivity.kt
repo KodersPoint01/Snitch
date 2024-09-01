@@ -76,8 +76,6 @@ class MainActivity : AppCompatActivity() {
     private  val NOTIFICATION_PERMISSION_REQUEST_CODE = 1001
     private val MANAGE_EXTERNAL_STORAGE_PERMISSION_CODE = 200
 
-
-
     private var server: Server? = null
     private var connection: CheckInternetConnection? = null
     private var changeServer: ChangeServer? = null

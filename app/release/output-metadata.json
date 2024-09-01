@@ -4,16 +4,16 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "com.koderpoint.snitch",
+  "applicationId": "com.koderpoints.snitch.vpn",
   "variantName": "release",
   "elements": [
     {
       "type": "SINGLE",
       "filters": [],
       "attributes": [],
-      "versionCode": 3,
-      "versionName": "1.0.3",
-      "outputFile": "app-release.apk"
+      "versionCode": 1,
+      "versionName": "1.0.1",
+      "outputFile": "Snitch-release.apk"
     }
   ],
   "elementType": "File"

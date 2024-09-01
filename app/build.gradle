@@ -9,13 +9,16 @@ android {
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.koderpoint.snitch"
+        applicationId "com.koderpoints.snitch.vpn"
         minSdk 22
         targetSdk 33
-        versionCode 3
-        versionName "1.0.3"
+        versionCode 1
+        versionName "1.0.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        setProperty("archivesBaseName", "Snitch")
+
+
     }
 
     buildTypes {
@@ -66,7 +69,7 @@ dependencies {
     implementation 'androidx.activity:activity-ktx:1.6.1'
 //coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
-    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+//    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
     // ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.0-alpha01")
     // Saved state module for ViewModel

@@ -48,7 +48,7 @@ class MainViewModelServer : ViewModel() {
             Server(
                 "USA 2",
                 R.drawable.usa_flag,
-                "usaa.ovpn",
+                "us.ovpn",
                 "I8JWpRJ6TU9f6tQZ",
                 "FbEcP6cg9NchqdNSEsj8sHDeUG8T0xXM"
             )
@@ -57,12 +57,12 @@ class MainViewModelServer : ViewModel() {
             Server(
                 "Japan2",
                 R.drawable.japan_flag,
-                "jap.ovpn",
+                "japan.ovpn",
                 "I8JWpRJ6TU9f6tQZ",
                 "FbEcP6cg9NchqdNSEsj8sHDeUG8T0xXM"
             )
         )
-
+/*
         servers.add(
             Server(
                 "Japan3",
@@ -80,9 +80,9 @@ class MainViewModelServer : ViewModel() {
                 "vpn",
                 "vpn"
             )
-        )
+        )*/
 
-        servers.add(
+       /* servers.add(
             Server(
                 "Korea2",
                 R.drawable.korea_flag,
@@ -90,8 +90,8 @@ class MainViewModelServer : ViewModel() {
                 "vpn",
                 "vpn"
             )
-        )
-
+        )*/
+/*
         servers.add(
             Server(
                 "Jappan5",
@@ -100,7 +100,7 @@ class MainViewModelServer : ViewModel() {
                 "vpn",
                 "vpn"
             )
-        )
+        )*/
         listServer.value = servers
         return listServer
     }

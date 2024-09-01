@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:709015416678:android:e1f5a6e7394342c1bd62a7",
+        "mobilesdk_app_id": "1:709015416678:android:351c7c351af453fbbd62a7",
         "android_client_info": {
-          "package_name": "com.koderpoint.snitch"
+          "package_name": "com.koderpoints.snitch.vpn"
         }
       },
       "oauth_client": [
